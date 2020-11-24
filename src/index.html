@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.js" integrity="sha512-1lagjLfnC1I0iqH9plHYIUq3vDMfjhZsLy9elfK89RBcpcRcx4l+kRJBSnHh2Mh6kLxRHoObD1M5UTUbgFy6nA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js" integrity="sha512-8qmis31OQi6hIRgvkht0s6mCOittjMa9GMqtK9hes5iEQBQE/Ca6yGE5FsW36vyipGoWQswBj/QBm2JR086Rkw==" crossorigin="anonymous"></script>
+        <script src="../js/main/util.js"></script>
+        <script src="../js/main/index.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css"/>
+        <link rel="stylesheet" href="../css/main/style.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous" />
+        <title>Log</title>
+    </head>
+    <body>
+        <div class="logContainer">
+            <div class="row">
+                <div class="col-12 col-xs-12 header">
+                    <!--Header Content-->
+                </div>
+                <div class="col-12 col-xs-12">
+                    <!--Body Content-->
+                    <div class="container">
+                        <ul class="nav nav-tabs" id="logTab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="upload-tab" data-toggle="tab" href="#uploadContent" role="tab" aria-controls="uploadContent"
+                                aria-selected="true">Upload</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link disabled" id="result-tab" data-toggle="tab" href="#resultContent" role="tab" aria-controls="resultContent"
+                                aria-selected="false">Results</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link disabled" id="error-tab" data-toggle="tab" href="#errorContent" role="tab" aria-controls="errorContent"
+                                aria-selected="false">Error</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="logTabContent">
+                            <div class="tab-pane fade show active" id="uploadContent" role="tabpanel" aria-labelledby="upload-tab">
+                                <div class="absoluteCenter uploadContainer">
+                                    <form class="md-form">
+                                        <div class="file-field">
+                                          <div class="btn btn-primary btn-sm float-left">
+                                            <span>Choose file</span>
+                                            <input type="file" id="uploadLogFile">
+                                          </div>
+                                          <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" id="uploadFileName" placeholder="Upload your file" value="">
+                                          </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="resultContent" role="tabpanel" aria-labelledby="result-tab">
+                                <div class="row mx-0" id="resultDisplay">
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="errorContent" role="tabpanel" aria-labelledby="error-tab">
+                                <div class="row mx-0" id="errorDisplay">
+                                    <table id="dataTableLog" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th>Line Number</th>
+                                                <th>Text</th>
+                                                <th>Position</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="custom-table-body">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xs-12 footer">
+                    <!--Footer Content-->
+                </div>
+            </div>
+        </div>
+        <div class="absoluteCenter spinnerContainer loading">
+            <img src="../assets/images/slds_spinner_brand.gif"/>
+        </div>
+    </body>
+</html>
