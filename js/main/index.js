@@ -86,36 +86,39 @@ function postProcessFile(){
 // create card for each key view
 function createCardByKey(data, key) {
     let footerButton = createElement('button', 'btn btn-primary position-absolute', key + 'btn', [], 'View');
-    let att = document.createAttribute("data-key"); 
-    att.value = data.key;     
+    let att = document.createAttribute("data-key"), attkey = document.createAttribute("data-keyword"); 
+    att.value = data.key;
+	attkey.value = key;
     let event = document.createEvent('Event');    
     event.initEvent('click', true, false);
     footerButton.addEventListener('click', function (e) {
         showLoader();
-        showDataInTable(e.target.dataset.key);
+        showDataInTable(e.target.dataset.key, e.target.dataset.keyword);
     }, false);
     footerButton.dispatchEvent(event);                 
     footerButton.setAttributeNode(att);
-    let header = createElement('span', 'text-lg text-left card-header-text', '', [], data.key)
+	footerButton.setAttributeNode(attkey);
+    let header = createElement('span', 'text-lg text-left card-header-text', '', [], key)
     , cardBodyContent = createElement('span', 'text-left text-lg card-body-text', '', [], 'Lines Affected: ' + data.lineCount)
     , cardHeader = createElement('div', 'card-header', '', [header], '')
     , cardBody = createElement('div', 'card-body', '', [cardBodyContent], '')
     , cardFooter = createElement('div', 'card-footer cardFooter position-relative', '', [footerButton], '')
     , cardParent = createElement('div', 'card cardContainer', '',[cardHeader, cardBody, cardFooter], '')
-    let parentDiv = createElement('div', 'col-12 col-sm-3', key + '-card-container', [cardParent], '');
+    let parentDiv = createElement('div', 'col-12 col-sm-3 my-2', key + '-card-container', [cardParent], '');
     return parentDiv;
 }
 
 // Show the table data for the selected card button
-function showDataInTable(key){
+function showDataInTable(key, keyword){
     dataToSession(false);
     let result = resultMap.get(key);
-    $('.custom-table-body').html();
+    $('.custom-table-body').html('');
     result.lineObjList.forEach(function(line){
         $('.custom-table-body').append(createTableData(line));
     });
     enableTab('#error-tab');
     tabActiveById('#error-tab');
+	$('#error-tab').html(keyword + ' Result');
     $('#dataTableLog').DataTable();
     hideLoader();
 }

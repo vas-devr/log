@@ -11,17 +11,98 @@ const keyList = [
         'isStrict': true
     },
     {
-        'key': 'View Accepted',
-        'isStrict': true
+        'key': 'viewAccepted',
+        'isStrict': false
     },
     {
         'key': 'Started In',
-        'isStrict': true
-    }
+        'isStrict': false
+    },
+	{
+		'key':'Giving up',
+		'isStrict':false
+	},
+	{
+		'key':'discarded message from non-member',
+		'isStrict':false
+	},
+	{
+		'key':'DemonHealthChecker',
+		'isStrict':false
+	},
+	{
+		'key':'INFO  server.V2DataEventDemon',
+		'isStrict':false
+	},
+	{
+		'key':'Caught ConcurrencyException',
+		'isStrict':false
+	},
+	{
+		'key':'tried to enter Stateful bean with different tx context',
+		'isStrict':false
+	},
+	{
+		'key':'Shutting down the server',
+		'isStrict':false
+	},
+	{
+		'key':'shutdown initiated',
+		'isStrict':false
+	},
+	{
+		'key':'Shutdown complete',
+		'isStrict':false
+	},
+	{
+		'key':'Node inoperable: Unacceptable reference time deviation',
+		'isStrict':false
+	},
+	{
+		'key':'systemsupervision.ClusterStateAccess',
+		'isStrict':true
+	},
+	{
+		'key':'server.ClusterServerPropertyProvider',
+		'isStrict':true
+	},
+	{
+		'key':'checks.GlobalMasterCheck',
+		'isStrict':true
+	},
+	{
+		'key':'Member has no network access',
+		'isStrict':true
+	},
+	{
+		'key':'TransactionRolledbackLocalException',
+		'isStrict':true
+	},
+	{
+		'key':'SQLSyntaxErrorException',
+		'isStrict':true
+	}
+	
 ], keywords = {
     ERROR: 'ERROR',
-    VIEW: 'View Accepted',
-    START: 'Started In'
+    VIEW: 'viewAccepted',
+    STARTEDIN: 'Started In',
+	TRANSACTIONFAILED: 'Giving up',
+	DISCARDEDMSG: 'discarded message from non-member',
+	DEMONHEALTH: 'DemonHealthChecker',
+	V2DEMON: 'INFO  server.V2DataEventDemon',
+	CONCURRENCY: 'Caught ConcurrencyException',
+	CONTEXTLOSS: 'tried to enter Stateful bean with different tx context',
+	SHUTDOWNSTART: 'Shutting down the server',
+	SHUTDOWNINIT: 'shutdown initiated',
+	SHUTDOWNCMT: 'Shutdown complete',
+	TIMEDEVIATION: 'Node inoperable: Unacceptable reference time deviation',
+	CLUSTERSTATE: 'systemsupervision.ClusterStateAccess',
+	CLUSTERPROPERTY: 'server.ClusterServerPropertyProvider',
+	GLOBALMASTERCHECK: 'checks.GlobalMasterCheck',
+	NETWORKACCESS: 'Member has no network access',
+	TRANSACTIONROLLEDBACK: 'TransactionRolledbackLocalException',
+	SQLEXCEPTION: 'SQLSyntaxErrorException'
 };
 /* end variables */
 
@@ -92,8 +173,8 @@ function createElement(tagName, className, tagId, children,innerHtml){
 // check for keyword availability 
 function iskeyAvailable(keyMap, line){
     line = (keyMap.isStrict?line:line.toLowerCase());
-    keyMap.key = (keyMap.isStrict?keyMap.key:keyMap.key.toLowerCase());
-    return (line.indexOf(keyMap.key)>-1);
+    let keyword = (keyMap.isStrict?keyMap.key:keyMap.key.toLowerCase());
+    return (line.indexOf(keyword)>-1);
 }
 
 // map the list to objects to keyword
