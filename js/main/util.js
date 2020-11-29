@@ -81,6 +81,62 @@ const keyList = [
 	{
 		'key':'SQLSyntaxErrorException',
 		'isStrict':true
+	},
+	{
+		'key':'NoObjectFoundException',
+		'isStrict':true
+	},
+	{
+		'key':'NoTxConnectionManager',
+		'isStrict':true
+	},
+	{
+		'key':'discarded message from non-member',
+		'isStrict':true
+	},
+	{
+		'key':'XAConnectionFactory',
+		'isStrict':true
+	},
+	{
+		'key':'org.jboss.ha.framework.server.DistributedReplicantManagerImpl',
+		'isStrict':true
+	},
+	{
+		'key':'Bound to JNDI name',
+		'isStrict':true
+	},
+	{
+		'key':'server.V2DataEventDemon - ManufacturingOrder',
+		'isStrict':true
+	},
+	{
+		'key':'server.V2DataEventDemon - Equipment',
+		'isStrict':true
+	},
+	{
+		'key':'server.V2DataEventDemon - Deviation',
+		'isStrict':true
+	},
+	{
+		'key':'server.V2DataEventDemon - ProductionUnit',
+		'isStrict':true
+	},
+	{
+		'key':'authws.PASXServiceImpl - PASXServiceImpl.userAuthentication',
+		'isStrict':true
+	},
+	{
+		'key':'authws.PASXServiceImpl - PASXServiceImpl.userAuthentication',
+		'isStrict':true
+	},
+	{
+		'key':'ldapacc.SearchObjectsAction',
+		'isStrict':true
+	},
+	{
+		'key':'lock held by in-doubt distributed transaction',
+		'isStrict':true
 	}
 	
 ], keywords = {
@@ -102,7 +158,20 @@ const keyList = [
 	GLOBALMASTERCHECK: 'checks.GlobalMasterCheck',
 	NETWORKACCESS: 'Member has no network access',
 	TRANSACTIONROLLEDBACK: 'TransactionRolledbackLocalException',
-	SQLEXCEPTION: 'SQLSyntaxErrorException'
+	SQLEXCEPTION: 'SQLSyntaxErrorException',
+	NOBJECTFOUND: 'NoObjectFoundException',
+	NOTXCONNMANAGER: 'NoTxConnectionManager',
+	CLUSTERISSUES: 'discarded message from non-member',
+	ORACLEISSUES: 'XAConnectionFactory',
+	NODEMEMBERS: 'org.jboss.ha.framework.server.DistributedReplicantManagerImpl',
+	QUEUE: 'Bound to JNDI name',
+	MO_DEMON: 'server.V2DataEventDemon - ManufacturingOrder',
+	EQM_DEMON: 'server.V2DataEventDemon - Equipment',
+	DEV_DEMON: 'server.V2DataEventDemon - Deviation',
+	PU_DEMON: 'server.V2DataEventDemon - ProductionUnit',
+	USERAUTH: 'authws.PASXServiceImpl - PASXServiceImpl.userAuthentication',
+	LDAP: 'ldapacc.SearchObjectsAction',
+	INDOUBTTRANS: 'lock held by in-doubt distributed transaction'
 };
 /* end variables */
 
