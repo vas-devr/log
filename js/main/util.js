@@ -137,6 +137,10 @@ const keyList = [
 	{
 		'key':'lock held by in-doubt distributed transaction',
 		'isStrict':true
+	},
+	{
+		'key':'ORA-04021: timeout occurred while waiting to lock object',
+		'isStrict':true
 	}
 	
 ], keywords = {
@@ -171,7 +175,8 @@ const keyList = [
 	PU_DEMON: 'server.V2DataEventDemon - ProductionUnit',
 	USERAUTH: 'authws.PASXServiceImpl - PASXServiceImpl.userAuthentication',
 	LDAP: 'ldapacc.SearchObjectsAction',
-	INDOUBTTRANS: 'lock held by in-doubt distributed transaction'
+	INDOUBTTRANS: 'lock held by in-doubt distributed transaction',
+	ORACLELOCK: 'ORA-04021: timeout occurred while waiting to lock object'
 };
 /* end variables */
 
